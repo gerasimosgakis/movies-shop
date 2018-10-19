@@ -3,15 +3,23 @@
     <button class="btn btn-success">New Movie</button>
   </div>
 </div>
+<hr>
 <div class="row">
   <div class="col-xs-12">
-    <a href="#" class="list-group-item clearfix">
+    <a
+      href="#"
+      class="list-group-item clearfix"
+      *ngFor="let movie of movies">
       <div class="pull-left">
-        <h4 class="list-group-item-heading">Movie Name</h4>
-        <p class="list-group-item-text">Description</p>
+        <h4 class="list-group-item-heading">{{movie.name}}</h4>
+        <p class="list-group-item-text">{{movie.description}}</p>
       </div>
       <span class="pull-right">
-        <img src="" alt="" class="img-responsive" style="max-height: 50px">
+        <img
+          [src]="movie.imagePath"
+          alt="{{movie.name}}"
+          class="img-responsive"
+          style="max-height: 50px">
       </span>
     </a>
       <app-movie-item></app-movie-item>
