@@ -14,7 +14,7 @@ export class MovieItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelected() {
+  public onSelected() {
     this.movieSelected.emit();
   }
 
