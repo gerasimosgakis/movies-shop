@@ -8,7 +8,7 @@ import { Movie } from '../../movie.model';
 })
 export class MovieItemComponent implements OnInit {
   @Input() movie: Movie;
-  constructor() { }
+  @Input() index: number;
 
   ngOnInit() {
   }
