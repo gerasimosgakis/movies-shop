@@ -13,6 +13,7 @@ import { BasketEditComponent } from './basket/basket-edit/basket-edit.component'
 import { DropdownDirective } from './shared/dropdown.directive';
 import { BasketService } from './basket/basket.service';
 import { AppRoutingModule } from './app-routing.module';
+import { MovieStartComponent } from './movies/movie-start/movie-start.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './app-routing.module';
     MovieItemComponent,
     BasketComponent,
     BasketEditComponent,
-    DropdownDirective
+    DropdownDirective,
+    MovieStartComponent
   ],
   imports: [
     BrowserModule,

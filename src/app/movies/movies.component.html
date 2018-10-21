@@ -3,11 +3,6 @@
     <app-movie-list></app-movie-list>
   </div>
   <div class="col-md-7">
-    <app-movie-detail
-      *ngIf="selectedMovie; else infoText"
-      [movie]="selectedMovie"></app-movie-detail>
-    <ng-template #infoText>
-      <p>Please Select a Movie!</p>
-    </ng-template>
+    <router-outlet></router-outlet>
   </div>
 </div>
