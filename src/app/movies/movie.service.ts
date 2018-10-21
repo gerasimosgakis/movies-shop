@@ -1,11 +1,10 @@
 import { Movie } from "./movie.model";
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Actor } from "../shared/actor.model";
 import { BasketService } from "../basket/basket.service";
 
 @Injectable()
 export class MovieService {
-    public movieSelected = new EventEmitter<Movie>();
 
     private movies: Movie[] = [
         new Movie(
