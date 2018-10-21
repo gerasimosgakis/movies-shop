@@ -1,5 +1,6 @@
 import { Order } from "../shared/order.model";
 import { EventEmitter } from "@angular/core";
+import { Movie } from "../movies/movie.model";
 
 export class BasketService {
     public ordersChanged = new EventEmitter<Order[]>();
@@ -14,6 +15,13 @@ export class BasketService {
 
     public addOrder(order: Order) {
         this.orders.push(order);
+        this.ordersChanged.emit(this.orders.slice());
+    }
+
+    public addMovie(movie: Movie) {
+        this.orders.push(
+            new Order(movie.title, null, 1)
+        );
         this.ordersChanged.emit(this.orders.slice());
     }
 }

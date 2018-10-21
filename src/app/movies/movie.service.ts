@@ -1,7 +1,9 @@
 import { Movie } from "./movie.model";
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { Actor } from "../shared/actor.model";
+import { BasketService } from "../basket/basket.service";
 
+@Injectable()
 export class MovieService {
     public movieSelected = new EventEmitter<Movie>();
 
@@ -26,7 +28,13 @@ export class MovieService {
         )
     ];
 
+    constructor(private basketService: BasketService) {}
+
     public getMovies() {
         return this.movies.slice();
+    }
+
+    public addMovieToBasket(movie: Movie) {
+        this.basketService.addMovie(movie);
     }
 }
