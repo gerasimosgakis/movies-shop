@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../movie.model';
 import { MovieService } from '../movie.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-detail',
@@ -13,7 +13,8 @@ export class MovieDetailComponent implements OnInit {
   public id: number;
 
   constructor(private movieService: MovieService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params .subscribe(
@@ -28,4 +29,7 @@ export class MovieDetailComponent implements OnInit {
     this.movieService.addMovieToBasket(this.movie);
   }
 
+  public onEditMovie() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
+  }
 }
