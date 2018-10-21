@@ -7,7 +7,7 @@ import { Order } from '../shared/order.model';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-  orders: Order[] = [
+  public orders: Order[] = [
     new Order('Trainspotting', 19.95, 1),
     new Order('A Clockwork Orange', 12.00, 2)
   ];
