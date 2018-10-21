@@ -37,4 +37,8 @@ export class MovieService {
     public addMovieToBasket(movie: Movie) {
         this.basketService.addMovie(movie);
     }
+
+    public getMovie(index: number) {
+        return this.movies[index];
+    }
 }

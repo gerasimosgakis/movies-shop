@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Movie } from '../movie.model';
 import { MovieService } from '../movie.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-movie-detail',
@@ -8,11 +9,19 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
-  @Input() movie: Movie;
+  public movie: Movie;
+  public id: number;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params .subscribe(
+      (params: Params) => {
+        this.id = +params['id'];
+        this.movie = this.movieService.getMovie(this.id);
+      }
+    );
   }
 
   public onAddToBasket() {
