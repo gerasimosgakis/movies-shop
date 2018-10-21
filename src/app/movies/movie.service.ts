@@ -1,6 +1,8 @@
 import { Movie } from "./movie.model";
+import { EventEmitter } from "@angular/core";
 
 export class MovieService {
+    public movieSelected = new EventEmitter<Movie>();
 
     private movies: Movie[] = [
         new Movie(

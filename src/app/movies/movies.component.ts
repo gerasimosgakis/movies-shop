@@ -11,9 +11,15 @@ import { MovieService } from './movie.service';
 export class MoviesComponent implements OnInit {
   public selectedMovie: Movie;
 
-  constructor() { }
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
+    this.movieService.movieSelected
+      .subscribe(
+        (movie: Movie) => {
+          this.selectedMovie = movie;
+        }
+      );
   }
 
 }
