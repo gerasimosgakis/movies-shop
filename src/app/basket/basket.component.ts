@@ -13,6 +13,12 @@ export class BasketComponent implements OnInit {
 
   ngOnInit() {
     this.orders = this.basketService.getOrders();
+    this.basketService.ordersChanged
+      .subscribe(
+        (orders: Order[]) => {
+          this.orders = orders;
+        }
+      );
   }
 
 }
