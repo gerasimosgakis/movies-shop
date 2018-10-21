@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from '../shared/order.model';
 
 @Component({
   selector: 'app-basket',
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-  orders = [];
+  orders: Order[] = [
+    new Order('Trainspotting', 19.95, 1),
+    new Order('A Clockwork Orange', 12.00, 2)
+  ];
 
   constructor() { }
 

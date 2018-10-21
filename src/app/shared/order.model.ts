@@ -1,3 +1,3 @@
 export class Order {
-    constructor(public title: string, public price: string, public amount: number) {}
+    constructor(public title: string, public price: number, public amount: number) {}
 }
