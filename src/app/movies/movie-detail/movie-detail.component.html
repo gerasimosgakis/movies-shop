@@ -37,6 +37,12 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    Cast
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let actor of movie.cast">
+        {{ actor.name }} <ng-container *ngIf="actor.age">- {{ actor.age }} years old</ng-container>
+      </li>
+    </ul>
   </div>
 </div>
