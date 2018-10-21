@@ -10,6 +10,7 @@ import { MovieDetailComponent } from './movies/movie-detail/movie-detail.compone
 import { MovieItemComponent } from './movies/movie-list/movie-item/movie-item.component';
 import { BasketComponent } from './basket/basket.component';
 import { BasketEditComponent } from './basket/basket-edit/basket-edit.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BasketEditComponent } from './basket/basket-edit/basket-edit.component'
     MovieDetailComponent,
     MovieItemComponent,
     BasketComponent,
-    BasketEditComponent
+    BasketEditComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
