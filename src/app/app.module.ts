@@ -11,6 +11,7 @@ import { MovieItemComponent } from './movies/movie-list/movie-item/movie-item.co
 import { BasketComponent } from './basket/basket.component';
 import { BasketEditComponent } from './basket/basket-edit/basket-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { BasketService } from './basket/basket.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [BasketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

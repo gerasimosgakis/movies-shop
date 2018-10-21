@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../shared/order.model';
+import { BasketService } from './basket.service';
 
 @Component({
   selector: 'app-basket',
@@ -7,18 +8,11 @@ import { Order } from '../shared/order.model';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-  public orders: Order[] = [
-    new Order('Trainspotting', 19.95, 1),
-    new Order('A Clockwork Orange', 12.00, 2)
-  ];
-
-  constructor() { }
+  public orders: Order[];
+  constructor(private basketService: BasketService) { }
 
   ngOnInit() {
-  }
-  
-  public onOrderAdded(order: Order) {
-    this.orders.push(order);
+    this.orders = this.basketService.getOrders();
   }
 
 }
