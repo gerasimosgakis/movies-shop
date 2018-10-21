@@ -1,10 +1,10 @@
 export class Movie {
-    public name: string;
+    public title: string;
     public description;
     public imagePath: string;
 
-    constructor (name: string, desc: string, imagePath: string) {
-        this.name = name;
+    constructor (title: string, desc: string, imagePath: string) {
+        this.title = title;
         this.description = desc;
         this.imagePath = imagePath;
     }
