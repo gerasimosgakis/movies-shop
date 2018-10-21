@@ -12,6 +12,7 @@ import { BasketComponent } from './basket/basket.component';
 import { BasketEditComponent } from './basket/basket-edit/basket-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { BasketService } from './basket/basket.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BasketService } from './basket/basket.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [BasketService],
   bootstrap: [AppComponent]
