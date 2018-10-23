@@ -2,9 +2,11 @@ import { Movie } from "./movie.model";
 import { Injectable } from "@angular/core";
 import { Actor } from "../shared/actor.model";
 import { BasketService } from "../basket/basket.service";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class MovieService {
+    public moviesChanged = new Subject<Movie[]>();
 
     private movies: Movie[] = [
         new Movie(
@@ -39,5 +41,15 @@ export class MovieService {
 
     public getMovie(index: number) {
         return this.movies[index];
+    }
+
+    public addMovie(movie: Movie) {
+        this.movies.push(movie);
+        this.moviesChanged.next(this.movies.slice());
+    }
+
+    public updateMovie(index: number, newMovie: Movie) {
+        this.movies[index]= newMovie;
+        this.moviesChanged.next(this.movies.slice());
     }
 }

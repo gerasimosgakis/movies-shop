@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { MovieService } from '../movie.service';
+import { Movie } from '../movie.model';
 
 @Component({
   selector: 'app-movie-edit',
@@ -28,7 +29,16 @@ export class MovieEditComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log(this.movieForm);
+    // const newMovie = new Movie(
+    //   this.movieForm.value['title'],
+    //   this.movieForm.value['description'],
+    //   this.movieForm.value['imagePath'],
+    //   this.movieForm.value['cast']);
+    if (this.editMode) {
+      this.movieService.updateMovie(this.id, this.movieForm.value);
+    } else {
+      this.movieService.addMovie(this.movieForm.value);
+    }
   }
 
   onAddActor() {

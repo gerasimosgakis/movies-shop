@@ -16,6 +16,12 @@ export class MovieListComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.movieService.moviesChanged
+      .subscribe(
+        (movies: Movie[]) => {
+          this.movies = movies;
+        }
+      );
     this.movies = this.movieService.getMovies();
   }
 
