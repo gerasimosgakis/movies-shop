@@ -50,17 +50,22 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <div class="row">
+        <div class="col-xs-12" formArrayName="cast">
+          <div
+            class="row"
+            *ngFor="let actorCtrl of movieForm.get('cast').controls; let i = index"
+            [formGroupName]="i">
             <div class="col-xs-8">
               <input
               type="text"
-              class="form-control">
+              class="form-control"
+              formControlName="name">
             </div>
             <div class="col-xs-2">
               <input
               type="number"
-              class="form-control">
+              class="form-control"
+              formControlName="age">
             </div>
             <div class="col-xs-2">
               <button class="btn btn-danger">X</button>

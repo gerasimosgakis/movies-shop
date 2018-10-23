@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { MovieService } from '../movie.service';
 
 @Component({
@@ -36,18 +36,30 @@ export class MovieEditComponent implements OnInit {
     let movieTitle = '';
     let movieImagePath = '';
     let movieDescription = '';
+    let cast = new FormArray([]);
 
     if (this.editMode) {
       const movie = this.movieService.getMovie(this.id);
       movieTitle = movie.title;
       movieImagePath = movie.imagePath;
       movieDescription = movie.description;
+      if (movie['cast']) {
+        for (let actor of movie.cast) {
+          cast.push(
+            new FormGroup({
+              'name': new FormControl(actor.name),
+              'age': new FormControl(actor.age)
+            })
+          )
+        }
+      }
     }
 
     this.movieForm = new FormGroup({
       'title': new FormControl(movieTitle),
       'imagePath': new FormControl(movieImagePath),
-      'description': new FormControl(movieDescription)
+      'description': new FormControl(movieDescription),
+      'cast': cast
     });
   }
 
