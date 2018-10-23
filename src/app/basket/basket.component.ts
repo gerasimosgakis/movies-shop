@@ -24,6 +24,10 @@ export class BasketComponent implements OnInit, OnDestroy {
       );
   }
 
+  onEditItem(index: number) {
+    this.basketService.startedEditing.next(index);
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

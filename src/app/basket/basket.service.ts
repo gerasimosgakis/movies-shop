@@ -4,6 +4,7 @@ import { Subject } from "rxjs";
 
 export class BasketService {
     public ordersChanged = new Subject<Order[]>();
+    public startedEditing = new Subject<number>();
     private orders: Order[] = [
         new Order('Trainspotting', 19.95, 1),
         new Order('A Clockwork Orange', 12.00, 2)

@@ -6,7 +6,8 @@
       <a
         class="list-group-item"
         style="cursor: pointer;"
-        *ngFor="let order of orders">
+        *ngFor="let order of orders; let i = index"
+        (click)="onEditItem(i)">
           {{order.title}} ({{order.amount}}) Price: {{order.price * order.amount}}
       </a>
     </ul>
