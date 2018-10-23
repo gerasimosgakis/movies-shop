@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { MovieService } from '../movie.service';
 
 @Component({
@@ -34,8 +34,11 @@ export class MovieEditComponent implements OnInit {
   onAddActor() {
     (<FormArray>this.movieForm.get('cast')).push(
       new FormGroup({
-        'name': new FormControl(),
-        'age': new FormControl()
+        'name': new FormControl(null, Validators.required),
+        'age': new FormControl(null, [
+          Validators.required,
+          Validators.pattern(/^[1-9]+[0-9]*$/)
+        ])
       })
     );
   }
@@ -55,8 +58,11 @@ export class MovieEditComponent implements OnInit {
         for (let actor of movie.cast) {
           cast.push(
             new FormGroup({
-              'name': new FormControl(actor.name),
-              'age': new FormControl(actor.age)
+              'name': new FormControl(actor.name, Validators.required),
+              'age': new FormControl(actor.age, [
+                Validators.required,
+                Validators.pattern(/^[1-9]+[0-9]*$/)
+              ])
             })
           )
         }
@@ -64,9 +70,9 @@ export class MovieEditComponent implements OnInit {
     }
 
     this.movieForm = new FormGroup({
-      'title': new FormControl(movieTitle),
-      'imagePath': new FormControl(movieImagePath),
-      'description': new FormControl(movieDescription),
+      'title': new FormControl(movieTitle, Validators.required),
+      'imagePath': new FormControl(movieImagePath, Validators.required),
+      'description': new FormControl(movieDescription, Validators.required),
       'cast': cast
     });
   }
