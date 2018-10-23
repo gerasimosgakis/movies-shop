@@ -21,7 +21,7 @@ export class BasketEditComponent implements OnInit, OnDestroy {
 
   constructor(private basketService: BasketService) { }
 
-  public onAddItem(form: NgForm) {
+  public onSubmit(form: NgForm) {
     const value = form.value;
     const newOrder = new Order(value.title, 10, value.amount);
     if (this.editMode) {
@@ -29,6 +29,8 @@ export class BasketEditComponent implements OnInit, OnDestroy {
     } else {
       this.basketService.addOrder(newOrder);
     }
+    this.editMode = false;
+    form.reset();
   }
 
   ngOnInit() {
