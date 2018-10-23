@@ -34,4 +34,9 @@ export class BasketService {
         this.orders[index] = newOrder;
         this.ordersChanged.next(this.orders.slice());
     }
+
+    public deleteMovie(index: number) {
+        this.orders.splice(index, 1);
+        this.ordersChanged.next(this.orders.slice());
+    }
 }

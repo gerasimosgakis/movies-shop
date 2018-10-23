@@ -38,6 +38,11 @@ export class BasketEditComponent implements OnInit, OnDestroy {
     this.editMode = false;
   }
 
+  public onDelete() {
+    this.basketService.deleteMovie(this.editedItemIndex);
+    this.onClear();
+  }
+
   ngOnInit() {
     this.subscription = this.basketService.startedEditing
       .subscribe(
