@@ -22,7 +22,6 @@ export class MovieEditComponent implements OnInit {
         (params: Params) => {
           this.id = +params['id'];
           this.editMode = params['id'] != null;
-          console.log(this.id);
           this.initForm();
         }
       );
@@ -30,6 +29,15 @@ export class MovieEditComponent implements OnInit {
 
   public onSubmit() {
     console.log(this.movieForm);
+  }
+
+  onAddActor() {
+    (<FormArray>this.movieForm.get('cast')).push(
+      new FormGroup({
+        'name': new FormControl(),
+        'age': new FormControl()
+      })
+    );
   }
 
   private initForm() {
