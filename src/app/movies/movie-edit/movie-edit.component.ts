@@ -9,7 +9,7 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./movie-edit.component.scss']
 })
 export class MovieEditComponent implements OnInit {
-  private id: number;
+  public id: number;
   public editMode = false;
   movieForm: FormGroup;
 
@@ -20,11 +20,16 @@ export class MovieEditComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params;
+          this.id = +params['id'];
           this.editMode = params['id'] != null;
+          console.log(this.id);
           this.initForm();
         }
       );
+  }
+
+  public onSubmit() {
+    console.log(this.movieForm);
   }
 
   private initForm() {
