@@ -33,6 +33,11 @@ export class BasketEditComponent implements OnInit, OnDestroy {
     form.reset();
   }
 
+  public onClear() {
+    this.basketForm.reset();
+    this.editMode = false;
+  }
+
   ngOnInit() {
     this.subscription = this.basketService.startedEditing
       .subscribe(
