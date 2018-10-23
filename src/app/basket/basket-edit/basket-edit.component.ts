@@ -1,4 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component,
+         OnInit,
+         OnDestroy,
+         ViewChild } from '@angular/core';
 import { Order } from 'src/app/shared/order.model';
 import { BasketService } from '../basket.service';
 import { NgForm } from '@angular/forms';
@@ -10,9 +13,11 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./basket-edit.component.scss']
 })
 export class BasketEditComponent implements OnInit, OnDestroy {
+  @ViewChild('f') basketForm: NgForm;
   private subscription: Subscription;
   private editMode = false;
   private editedItemIndex: number;
+  public editedItem: Order;
 
   constructor(private basketService: BasketService) { }
 
@@ -28,6 +33,11 @@ export class BasketEditComponent implements OnInit, OnDestroy {
         (index: number) => {
           this.editedItemIndex = index;
           this.editMode = true;
+          this.editedItem = this.basketService.getOrder(index);
+          this.basketForm.setValue({
+            title: this.editedItem.title,
+            amount: this.editedItem.amount
+          });
         }
       );
   }

@@ -14,6 +14,10 @@ export class BasketService {
         return this.orders.slice();
     }
 
+    getOrder(index: number) {
+        return this.orders[index];
+    }
+
     public addOrder(order: Order) {
         this.orders.push(order);
         this.ordersChanged.next(this.orders.slice());
