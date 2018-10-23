@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 export class BasketEditComponent implements OnInit, OnDestroy {
   @ViewChild('f') basketForm: NgForm;
   private subscription: Subscription;
-  private editMode = false;
+  public editMode = false;
   private editedItemIndex: number;
   public editedItem: Order;
 
@@ -24,7 +24,11 @@ export class BasketEditComponent implements OnInit, OnDestroy {
   public onAddItem(form: NgForm) {
     const value = form.value;
     const newOrder = new Order(value.title, 10, value.amount);
-    this.basketService.addOrder(newOrder);
+    if (this.editMode) {
+      this.basketService.updateMovie(this.editedItemIndex, newOrder);
+    } else {
+      this.basketService.addOrder(newOrder);
+    }
   }
 
   ngOnInit() {

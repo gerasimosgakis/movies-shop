@@ -29,4 +29,9 @@ export class BasketService {
         );
         this.ordersChanged.next(this.orders.slice());
     }
+
+    public updateMovie(index: number, newOrder: Order) {
+        this.orders[index] = newOrder;
+        this.ordersChanged.next(this.orders.slice());
+    }
 }
