@@ -15,6 +15,7 @@ import { BasketService } from './basket/basket.service';
 import { AppRoutingModule } from './app-routing.module';
 import { MovieStartComponent } from './movies/movie-start/movie-start.component';
 import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
+import { MovieService } from './movies/movie.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [BasketService],
+  providers: [BasketService, MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
