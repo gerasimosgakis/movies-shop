@@ -31,6 +31,11 @@ export class MovieService {
 
     constructor(private basketService: BasketService) {}
 
+    public setMovies(movies: Movie[]) {
+        this.movies = movies;
+        this.moviesChanged.next(this.movies.slice());
+    }
+
     public getMovies() {
         return this.movies.slice();
     }

@@ -17,4 +17,8 @@ export class HeaderComponent {
                 }
             );
     }
+
+    public onFetchData() {
+        this.dataStorageService.getMovies();
+    }
 }
