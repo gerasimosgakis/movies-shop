@@ -1,22 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Movie } from '../movie.model';
 import { MovieService } from '../movie.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss']
 })
-export class MovieListComponent implements OnInit {
+export class MovieListComponent implements OnInit, OnDestroy {
   public movies: Movie[];
+  private subscription: Subscription;
 
   constructor(private movieService: MovieService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.movieService.moviesChanged
+    this.subscription = this.movieService.moviesChanged
       .subscribe(
         (movies: Movie[]) => {
           this.movies = movies;
@@ -27,5 +29,9 @@ export class MovieListComponent implements OnInit {
 
   public onNewMovie() {
     this.router.navigate(['new'], {relativeTo: this.route});
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

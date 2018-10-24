@@ -42,7 +42,7 @@ export class MovieEditComponent implements OnInit {
     this.onCancel();
   }
 
-  onAddActor() {
+  public onAddActor() {
     (<FormArray>this.movieForm.get('cast')).push(
       new FormGroup({
         'name': new FormControl(null, Validators.required),
@@ -52,6 +52,10 @@ export class MovieEditComponent implements OnInit {
         ])
       })
     );
+  }
+
+  public onDeleteActor(index: number) {
+    (<FormArray>this.movieForm.get('cast')).removeAt(index);
   }
 
   public onCancel() {
