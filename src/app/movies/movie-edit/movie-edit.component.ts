@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { MovieService } from '../movie.service';
-import { Movie } from '../movie.model';
 
 @Component({
   selector: 'app-movie-edit',
@@ -15,7 +14,8 @@ export class MovieEditComponent implements OnInit {
   movieForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private movieService: MovieService) { }
+              private movieService: MovieService,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -39,6 +39,7 @@ export class MovieEditComponent implements OnInit {
     } else {
       this.movieService.addMovie(this.movieForm.value);
     }
+    this.onCancel();
   }
 
   onAddActor() {
@@ -51,6 +52,10 @@ export class MovieEditComponent implements OnInit {
         ])
       })
     );
+  }
+
+  public onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   private initForm() {
