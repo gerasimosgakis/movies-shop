@@ -5,6 +5,7 @@ import { BasketComponent } from "./basket/basket.component";
 import { MovieStartComponent } from "./movies/movie-start/movie-start.component";
 import { MovieDetailComponent } from "./movies/movie-detail/movie-detail.component";
 import { MovieEditComponent } from "./movies/movie-edit/movie-edit.component";
+import { SignupComponent } from "./auth/signup/signup.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/movies', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
         { path: ':id/edit', component: MovieEditComponent }
     ] },
     { path: 'basket', component: BasketComponent },
+    { path: 'signup', component: SignupComponent }
 ]
 
 @NgModule({

@@ -18,6 +18,8 @@ import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
 import { MovieService } from './movies/movie.service';
 import { HttpModule } from '@angular/http';
 import { DataStorageService } from './shared/data-storage.service';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { DataStorageService } from './shared/data-storage.service';
     BasketEditComponent,
     DropdownDirective,
     MovieStartComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
