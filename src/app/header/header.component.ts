@@ -23,4 +23,8 @@ export class HeaderComponent {
     public onFetchData() {
         this.dataStorageService.getMovies();
     }
+
+    public onLogout() {
+        this.authService.logout();
+    }
 }
