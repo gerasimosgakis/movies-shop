@@ -1,0 +1,2 @@
+secret.service.ts filter=git-crypt diff=git-crypt
+app.component.ts filter=git-crypt diff=git-crypt
