@@ -22,7 +22,6 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
-import { SecretService } from './secret.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +52,6 @@ import { SecretService } from './secret.service';
     DataStorageService,
     AuthService,
     AuthGuard,
-    SecretService
   ],
   bootstrap: [AppComponent]
 })
