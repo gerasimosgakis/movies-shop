@@ -52,7 +52,6 @@ import { AuthGuard } from './auth/auth-guard.service';
     DataStorageService,
     AuthService,
     AuthGuard,
-    SecretService
   ],
   bootstrap: [AppComponent]
 })
