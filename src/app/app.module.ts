@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { BasketComponent } from './basket/basket.component';
-import { BasketEditComponent } from './basket/basket-edit/basket-edit.component';
 import { BasketService } from './basket/basket.service';
 import { AppRoutingModule } from './app-routing.module';
 import { MovieService } from './movies/movie.service';
@@ -16,26 +14,23 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { MoviesModule } from './movies/movies.module';
-import { MoviesRoutingModule } from './movies/movies-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { BasketModule } from './basket/basket.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BasketComponent,
-    BasketEditComponent,
     SignupComponent,
     SigninComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     HttpModule,
     MoviesModule,
-    MoviesRoutingModule,
-    SharedModule
+    SharedModule,
+    BasketModule
   ],
   providers: [
     BasketService,
