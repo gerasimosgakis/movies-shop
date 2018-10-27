@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BasketComponent } from './basket/basket.component';
 import { BasketEditComponent } from './basket/basket-edit/basket-edit.component';
-import { DropdownDirective } from './shared/dropdown.directive';
 import { BasketService } from './basket/basket.service';
 import { AppRoutingModule } from './app-routing.module';
 import { MovieService } from './movies/movie.service';
@@ -18,6 +17,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { MoviesModule } from './movies/movies.module';
 import { MoviesRoutingModule } from './movies/movies-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,6 @@ import { MoviesRoutingModule } from './movies/movies-routing.module';
     HeaderComponent,
     BasketComponent,
     BasketEditComponent,
-    DropdownDirective,
     SignupComponent,
     SigninComponent
   ],
@@ -35,7 +34,8 @@ import { MoviesRoutingModule } from './movies/movies-routing.module';
     AppRoutingModule,
     HttpModule,
     MoviesModule,
-    MoviesRoutingModule
+    MoviesRoutingModule,
+    SharedModule
   ],
   providers: [
     BasketService,

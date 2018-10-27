@@ -8,6 +8,7 @@ import { MovieItemComponent } from "./movie-list/movie-item/movie-item.component
 import { ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { MoviesRoutingModule } from "./movies-routing.module";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { MoviesRoutingModule } from "./movies-routing.module";
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        MoviesRoutingModule
+        MoviesRoutingModule,
+        SharedModule
     ]
 })
 export class MoviesModule {
