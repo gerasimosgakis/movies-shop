@@ -7,7 +7,7 @@ import { AuthGuard } from "../auth/auth-guard.service";
 import { MovieDetailComponent } from "./movie-detail/movie-detail.component";
 
 const moviesRoutes: Routes = [
-    { path: 'movies', component: MoviesComponent, children: [
+    { path: '', component: MoviesComponent, children: [
         { path: '', component: MovieStartComponent },
         { path: 'new', component: MovieEditComponent, canActivate: [AuthGuard] },
         { path: ':id', component: MovieDetailComponent },

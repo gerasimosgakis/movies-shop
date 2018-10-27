@@ -10,21 +10,21 @@ import { HttpModule } from '@angular/http';
 import { DataStorageService } from './shared/data-storage.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
-import { MoviesModule } from './movies/movies.module';
 import { SharedModule } from './shared/shared.module';
 import { BasketModule } from './basket/basket.module';
 import { AuthModule } from './auth/auth.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    MoviesModule,
     SharedModule,
     BasketModule,
     AuthModule
