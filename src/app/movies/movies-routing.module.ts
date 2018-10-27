@@ -19,7 +19,10 @@ const moviesRoutes: Routes = [
     imports: [
         RouterModule.forChild(moviesRoutes)
     ],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    providers: [
+        AuthGuard
+    ]
 })
 export class MoviesRoutingModule {
 
