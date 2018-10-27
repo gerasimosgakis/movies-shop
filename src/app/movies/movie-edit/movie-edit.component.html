@@ -57,7 +57,7 @@
         <div class="col-xs-12" formArrayName="cast">
           <div
             class="row"
-            *ngFor="let actorCtrl of movieForm.get('cast')['controls']; let i = index"
+            *ngFor="let actorCtrl of getControls(); let i = index"
             [formGroupName]="i"
             style="margin-top: 10px">
             <div class="col-xs-8">

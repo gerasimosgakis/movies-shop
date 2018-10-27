@@ -9,7 +9,7 @@ import { AuthService } from "../../auth/auth.service";
 })
 export class HeaderComponent {
     constructor(private dataStorageService: DataStorageService,
-                public authService: AuthService) {}
+                private authService: AuthService) {}
 
     public onSaveData() {
         this.dataStorageService.storeMovies()
@@ -26,5 +26,9 @@ export class HeaderComponent {
 
     public onLogout() {
         this.authService.logout();
+    }
+
+    public isAuthenticated() {
+        return this.authService.isAuthenticated();
     }
 }

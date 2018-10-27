@@ -96,4 +96,8 @@ export class MovieEditComponent implements OnInit {
     });
   }
 
+  public getControls() {
+    return (<FormArray>this.movieForm.get('cast')).controls;
+  }
+
 }
