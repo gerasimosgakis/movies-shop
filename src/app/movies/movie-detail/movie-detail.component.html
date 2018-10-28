@@ -12,6 +12,25 @@
     <h1>{{ movie.title }}</h1>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <b>Genre:</b> {{ movie.description }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let actor of movie.cast">
+        {{ actor.name }} <ng-container *ngIf="actor.age">- {{ actor.age }} years old</ng-container>
+      </li>
+    </ul>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-xs-12">
     <div
@@ -28,21 +47,5 @@
         <li><a style="cursor: pointer" (click)="onDeleteMovie()">Delete Movie</a></li>
       </ul>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    {{ movie.description }}
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let actor of movie.cast">
-        {{ actor.name }} <ng-container *ngIf="actor.age">- {{ actor.age }} years old</ng-container>
-      </li>
-    </ul>
   </div>
 </div>
