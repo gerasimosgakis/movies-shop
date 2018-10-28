@@ -1,0 +1,7 @@
+.wrap {
+    display: grid;
+    grid-template-rows: 1fr;
+    .head {
+        justify-self: center;
+    } 
+}
